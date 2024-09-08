@@ -6,10 +6,10 @@ export default function ({ children }: { children: ReactNode }) {
     const pathname = location.pathname.replace(/^\//, "");
     const navigate = useNavigate();
 
-    // window.addEventListener("contextmenu", (e) => {
-    //     e.preventDefault();
-    //     navigate(-1);
-    // });
+    window.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
+        navigate(-1);
+    });
 
     const handleUrl = ({ children }: { children: ReactNode }) => {
         useEffect(() => setUrl(pathname), [location.pathname]);
@@ -24,11 +24,9 @@ export default function ({ children }: { children: ReactNode }) {
                 <button className="popstate" onClick={() => navigate(+1)}>
                     &gt;
                 </button>
-
                 <form
                     onSubmit={(e) => {
                         e.preventDefault();
-
                         navigate(encodeURI(url));
                     }}
                 >
@@ -43,6 +41,14 @@ export default function ({ children }: { children: ReactNode }) {
                         <button type="submit">Search</button>
                     </div>
                 </form>
+                <button
+                    className="popstate"
+                    onClick={() =>
+                        fetch("https://mini-browser/off").catch(console.error)
+                    }
+                >
+                    X
+                </button>
             </div>
             {handleUrl({ children })}
         </>

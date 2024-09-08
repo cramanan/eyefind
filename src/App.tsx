@@ -17,6 +17,10 @@ function App() {
                     <Route path="" element={<Home />} />
                 </Route>
                 <Route
+                    path="index.html"
+                    element={<Navigate to="/www.eyefind.info/" replace />}
+                />
+                <Route
                     path="/"
                     element={<Navigate to="/www.eyefind.info/" replace />}
                 />
