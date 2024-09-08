@@ -5,10 +5,9 @@ export default function ({ children }: { children: ReactNode }) {
     const [url, setUrl] = useState("");
     const navigate = useNavigate();
 
-    window.addEventListener("contextmenu", (e) => e.preventDefault());
-    window.addEventListener("mousedown", (e) => {
+    window.addEventListener("contextmenu", (e) => {
         e.preventDefault();
-        e.button === 2 && navigate(-1);
+        navigate(-1);
     });
 
     const handleUrl = ({ children }: { children: ReactNode }) => {
