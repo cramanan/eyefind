@@ -1,5 +1,12 @@
 import logo from "../assets/Maze.webp";
+import "./Maze.scss";
 
 export default function () {
-    return <img src={logo} alt="" />;
+    return (
+        <main id="background">
+            <div id="container">
+                <img src={logo} alt="" />
+            </div>
+        </main>
+    );
 }
