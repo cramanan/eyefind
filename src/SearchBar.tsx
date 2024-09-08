@@ -5,6 +5,12 @@ export default function ({ children }: { children: ReactNode }) {
     const [url, setUrl] = useState("");
     const navigate = useNavigate();
 
+    window.addEventListener("contextmenu", (e) => e.preventDefault());
+    window.addEventListener("mousedown", (e) => {
+        e.preventDefault();
+        e.button === 2 && navigate(-1);
+    });
+
     const handleUrl = ({ children }: { children: ReactNode }) => {
         useEffect(
             () => setUrl(location.pathname.replace(/^\//, "")),
@@ -15,8 +21,12 @@ export default function ({ children }: { children: ReactNode }) {
     return (
         <>
             <div id="url">
-                <button onClick={() => navigate(-1)}>&lt;</button>
-                <button onClick={() => navigate(+1)}>&gt;</button>
+                <button className="popstate" onClick={() => navigate(-1)}>
+                    &lt;
+                </button>
+                <button className="popstate" onClick={() => navigate(+1)}>
+                    &gt;
+                </button>
 
                 <form
                     onSubmit={(e) => {
