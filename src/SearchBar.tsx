@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function ({ children }: { children: ReactNode }) {
     const [url, setUrl] = useState("");
+    const pathname = location.pathname.replace(/^\//, "");
     const navigate = useNavigate();
 
     // window.addEventListener("contextmenu", (e) => {
@@ -11,10 +12,7 @@ export default function ({ children }: { children: ReactNode }) {
     // });
 
     const handleUrl = ({ children }: { children: ReactNode }) => {
-        useEffect(
-            () => setUrl(location.pathname.replace(/^\//, "")),
-            [location.pathname]
-        );
+        useEffect(() => setUrl(pathname), [location.pathname]);
         return children;
     };
     return (
@@ -30,6 +28,7 @@ export default function ({ children }: { children: ReactNode }) {
                 <form
                     onSubmit={(e) => {
                         e.preventDefault();
+
                         navigate(encodeURI(url));
                     }}
                 >
