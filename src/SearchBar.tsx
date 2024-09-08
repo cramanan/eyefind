@@ -5,10 +5,10 @@ export default function ({ children }: { children: ReactNode }) {
     const [url, setUrl] = useState("");
     const navigate = useNavigate();
 
-    window.addEventListener("contextmenu", (e) => {
-        e.preventDefault();
-        navigate(-1);
-    });
+    // window.addEventListener("contextmenu", (e) => {
+    //     e.preventDefault();
+    //     navigate(-1);
+    // });
 
     const handleUrl = ({ children }: { children: ReactNode }) => {
         useEffect(
@@ -33,13 +33,16 @@ export default function ({ children }: { children: ReactNode }) {
                         navigate(encodeURI(url));
                     }}
                 >
-                    <input
-                        type="text"
-                        name="url"
-                        id="search-bar"
-                        value={url}
-                        onChange={(e) => setUrl(e.target.value)}
-                    />
+                    <div id="search-bar-container">
+                        <input
+                            type="text"
+                            name="url"
+                            id="search-bar"
+                            value={url}
+                            onChange={(e) => setUrl(e.target.value)}
+                        />
+                        <button type="submit">Search</button>
+                    </div>
                 </form>
             </div>
             {handleUrl({ children })}
