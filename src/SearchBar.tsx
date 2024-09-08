@@ -14,22 +14,25 @@ export default function ({ children }: { children: ReactNode }) {
     };
     return (
         <>
-            <form
-                id="url"
-                onSubmit={(e) => {
-                    e.preventDefault();
-                    navigate(encodeURI(url));
-                }}
-            >
-                <input
-                    type="text"
-                    name="url"
-                    id="search-bar"
-                    value={url}
-                    onChange={(e) => setUrl(e.target.value)}
-                />
-            </form>
+            <div id="url">
+                <button onClick={() => navigate(-1)}>&lt;</button>
+                <button onClick={() => navigate(+1)}>&gt;</button>
 
+                <form
+                    onSubmit={(e) => {
+                        e.preventDefault();
+                        navigate(encodeURI(url));
+                    }}
+                >
+                    <input
+                        type="text"
+                        name="url"
+                        id="search-bar"
+                        value={url}
+                        onChange={(e) => setUrl(e.target.value)}
+                    />
+                </form>
+            </div>
             {handleUrl({ children })}
         </>
     );
