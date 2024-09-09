@@ -1,6 +1,12 @@
+:root {
+    --url-width: 40px;
+}
+
 #url {
     background-color: #d3d3d8;
-    height: 40px;
+    height: var(--url-width);
+    width: 100dvw;
+    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,4 +28,8 @@
     #search-bar {
         width: 600px;
     }
+}
+
+#url-main {
+    padding-top: var(--url-width);
 }

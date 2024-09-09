@@ -11,22 +11,26 @@ export function Maze() {
                     <img src={logo} alt="Maze Bank Logo" id="logo" />
                 </Link>
                 <span id="sep"></span>
-            </div>
-            <div id="container">
-                <Outlet />
+                <div id="outlet">
+                    <Outlet />
+                </div>
             </div>
         </main>
     );
 }
 
-export function Home() {
+export function MazeHome() {
     return (
-        <>
+        <div className="choice">
             <Link to="open-account">Open a bank account</Link>
-        </>
+        </div>
     );
 }
 
 export function OpenAccount() {
     return <>Open a bank account</>;
+}
+
+export function Maze404() {
+    return <>404</>;
 }

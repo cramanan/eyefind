@@ -50,7 +50,7 @@ export default function ({ children }: { children: ReactNode }) {
                     X
                 </button>
             </div>
-            {handleUrl({ children })}
+            <main id="url-main">{handleUrl({ children })}</main>
         </>
     );
 }
