@@ -1,7 +1,14 @@
 import { Route, Routes, Navigate } from "react-router-dom";
 import "./App.scss";
-import { Eyefind, Eyefind404, EyefindHome } from "./pages/Eyefind";
-import { Maze, Maze404, MazeHome, OpenAccount } from "./pages/Maze";
+import { Eyefind, Eyefind404, EyefindHome } from "./pages/Eyefind/Eyefind";
+import {
+    Maze,
+    Maze404,
+    MazeDeposit,
+    MazeHome,
+    MazeWithdraw,
+    OpenAccount,
+} from "./pages/Maze/Maze";
 import SearchBar from "./SearchBar";
 
 function App() {
@@ -19,6 +26,9 @@ function App() {
                 <Route path="www.maze-bank.com/" element={<Maze />}>
                     <Route path="" element={<MazeHome />} />
                     <Route path="open-account" element={<OpenAccount />} />
+                    <Route path="deposit" element={<MazeDeposit />} />
+                    <Route path="withdraw" element={<MazeWithdraw />} />
+                    <Route path="logs" element={<>logs</>} />
                     <Route path="*" element={<Maze404 />} />
                 </Route>
                 <Route

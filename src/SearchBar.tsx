@@ -26,7 +26,7 @@ export default function () {
                     id="search-bar-form"
                     onSubmit={(e) => {
                         e.preventDefault();
-                        navigate(encodeURI(url));
+                        if (pathname !== url) navigate(encodeURI(url));
                     }}
                 >
                     <input
@@ -36,18 +36,16 @@ export default function () {
                         value={url}
                         onChange={(e) => setUrl(e.target.value)}
                     />
-                    <button
-                        className="popstate"
-                        id="quit"
-                        onClick={() =>
-                            fetch("https://mini-browser/off").catch(
-                                console.error
-                            )
-                        }
-                    >
-                        X
-                    </button>
                 </form>
+                <button
+                    className="popstate"
+                    id="quit"
+                    onClick={() =>
+                        fetch("https://mini-browser/off").catch(console.error)
+                    }
+                >
+                    X
+                </button>
             </div>
             <main id="url-main">
                 <Outlet />

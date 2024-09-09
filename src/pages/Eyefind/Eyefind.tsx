@@ -1,13 +1,15 @@
 import { Link, Outlet } from "react-router-dom";
-import logo from "../assets/Eyefind.info.webp";
-import mazelogo from "../assets/Maze.webp";
+import logo from "../../assets/Eyefind.info.webp";
+import mazelogo from "../../assets/Maze.webp";
 import "./Eyefind.scss";
 
 export function Eyefind() {
     return (
         <>
             <header id="eyefind-header">
-                <img src={logo} alt="eyefind logo" />
+                <Link to="/www.eyefind.info/">
+                    <img src={logo} alt="eyefind logo" />
+                </Link>
             </header>
             <main id="eyefind-main">
                 <Outlet />
