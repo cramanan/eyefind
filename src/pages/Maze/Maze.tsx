@@ -12,6 +12,7 @@ const context = createContext<User | null>(null);
 
 export function Maze() {
     const [user, setUser] = useState<User | null>({ name: "User", amount: 0 });
+    // TODO : Request user credentials
     return (
         <context.Provider value={user}>
             <div id="background">
