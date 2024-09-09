@@ -4,7 +4,7 @@ import "./Maze.scss";
 
 export function Maze() {
     return (
-        <main id="background">
+        <div id="background">
             <span id="bar"></span>
             <div id="container">
                 <Link to="">
@@ -15,20 +15,26 @@ export function Maze() {
                     <Outlet />
                 </div>
             </div>
-        </main>
+        </div>
     );
 }
 
 export function MazeHome() {
     return (
-        <div className="choice">
-            <Link to="open-account">Open a bank account</Link>
+        <div id="choice">
+            <Link to="open-account" className="red-button">
+                Open a bank account
+            </Link>
         </div>
     );
 }
 
 export function OpenAccount() {
-    return <>Open a bank account</>;
+    return (
+        <>
+            <h2 id="open-account">Open a bank account</h2>
+        </>
+    );
 }
 
 export function Maze404() {

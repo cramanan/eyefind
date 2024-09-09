@@ -6,10 +6,10 @@ export default function ({ children }: { children: ReactNode }) {
     const pathname = location.pathname.replace(/^\//, "");
     const navigate = useNavigate();
 
-    window.addEventListener("contextmenu", (e) => {
-        e.preventDefault();
-        navigate(-1);
-    });
+    // window.addEventListener("contextmenu", (e) => {
+    //     e.preventDefault();
+    //     navigate(-1);
+    // });
 
     const handleUrl = ({ children }: { children: ReactNode }) => {
         useEffect(() => setUrl(pathname), [location.pathname]);
@@ -25,30 +25,31 @@ export default function ({ children }: { children: ReactNode }) {
                     &gt;
                 </button>
                 <form
+                    id="search-bar-form"
                     onSubmit={(e) => {
                         e.preventDefault();
                         navigate(encodeURI(url));
                     }}
                 >
-                    <div id="search-bar-container">
-                        <input
-                            type="text"
-                            name="url"
-                            id="search-bar"
-                            value={url}
-                            onChange={(e) => setUrl(e.target.value)}
-                        />
-                        <button type="submit">Search</button>
-                    </div>
+                    <input
+                        type="text"
+                        name="url"
+                        id="search-bar"
+                        value={url}
+                        onChange={(e) => setUrl(e.target.value)}
+                    />
+                    <button
+                        className="popstate"
+                        id="quit"
+                        onClick={() =>
+                            fetch("https://mini-browser/off").catch(
+                                console.error
+                            )
+                        }
+                    >
+                        X
+                    </button>
                 </form>
-                <button
-                    className="popstate"
-                    onClick={() =>
-                        fetch("https://mini-browser/off").catch(console.error)
-                    }
-                >
-                    X
-                </button>
             </div>
             <main id="url-main">{handleUrl({ children })}</main>
         </>
