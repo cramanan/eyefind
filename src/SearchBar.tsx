@@ -1,9 +1,9 @@
-import { ReactNode, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 
-export default function ({ children }: { children: ReactNode }) {
+export default function () {
     const [url, setUrl] = useState("");
-    const pathname = location.pathname.replace(/^\//, "");
+    const pathname = location.pathname.substring(1);
     const navigate = useNavigate();
 
     // window.addEventListener("contextmenu", (e) => {
@@ -11,10 +11,8 @@ export default function ({ children }: { children: ReactNode }) {
     //     navigate(-1);
     // });
 
-    const handleUrl = ({ children }: { children: ReactNode }) => {
-        useEffect(() => setUrl(pathname), [location.pathname]);
-        return children;
-    };
+    useEffect(() => setUrl(pathname), [location.pathname]);
+
     return (
         <>
             <div id="url">
@@ -51,7 +49,9 @@ export default function ({ children }: { children: ReactNode }) {
                     </button>
                 </form>
             </div>
-            <main id="url-main">{handleUrl({ children })}</main>
+            <main id="url-main">
+                <Outlet />
+            </main>
         </>
     );
 }

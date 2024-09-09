@@ -6,30 +6,30 @@ import SearchBar from "./SearchBar";
 
 function App() {
     return (
-        <SearchBar>
-            <Routes>
-                <Route path="/www.eyefind.info/" element={<Eyefind />}>
+        <Routes>
+            <Route path="/" element={<SearchBar />}>
+                <Route
+                    path=""
+                    element={<Navigate to="www.eyefind.info/" replace />}
+                />
+                <Route path="www.eyefind.info/" element={<Eyefind />}>
                     <Route path="" element={<EyefindHome />} />
                     <Route path="*" element={<Eyefind404 />} />
                 </Route>
-                <Route path="/www.maze-bank.com/" element={<Maze />}>
-                    <Route path="open-account" element={<OpenAccount />} />
+                <Route path="www.maze-bank.com/" element={<Maze />}>
                     <Route path="" element={<MazeHome />} />
+                    <Route path="open-account" element={<OpenAccount />} />
                     <Route path="*" element={<Maze404 />} />
                 </Route>
                 <Route
                     path="index.html"
                     element={<Navigate to="/www.eyefind.info/" replace />}
                 />
-                <Route
-                    path="/"
-                    element={<Navigate to="/www.eyefind.info/" replace />}
-                />
                 <Route path="*" element={<Eyefind />}>
                     <Route path="*" element={<Eyefind404 />} />
                 </Route>
-            </Routes>
-        </SearchBar>
+            </Route>
+        </Routes>
     );
 }
 
