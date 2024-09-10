@@ -7,7 +7,7 @@ export function Eyefind() {
     return (
         <>
             <header id="eyefind-header">
-                <Link to="/www.eyefind.info/">
+                <Link to="/www.eyefind.info">
                     <img src={logo} alt="eyefind logo" />
                 </Link>
             </header>

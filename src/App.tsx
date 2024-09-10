@@ -17,20 +17,21 @@ function App() {
             <Route path="/" element={<SearchBar />}>
                 {/* REDIRECTS */}
                 <Route
-                    path=""
-                    element={<Navigate to="www.eyefind.info/" replace />}
-                />
-                <Route
                     path="index.html"
-                    element={<Navigate to="/www.eyefind.info/" replace />}
+                    element={<Navigate to="/www.eyefind.info" replace />}
+                />
+
+                <Route
+                    path=""
+                    element={<Navigate to="/www.eyefind.info" replace />}
                 />
 
                 {/* ROUTES */}
-                <Route path="www.eyefind.info/" element={<Eyefind />}>
+                <Route path="www.eyefind.info" element={<Eyefind />}>
                     <Route path="" element={<EyefindHome />} />
                     <Route path="*" element={<Eyefind404 />} />
                 </Route>
-                <Route path="www.maze-bank.com/" element={<Maze />}>
+                <Route path="www.maze-bank.com" element={<Maze />}>
                     <Route path="" element={<MazeHome />} />
                     <Route path="open-account" element={<OpenAccount />} />
                     <Route path="deposit" element={<MazeDeposit />} />

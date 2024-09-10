@@ -4,11 +4,11 @@ body::after {
     height: 0;
     overflow: hidden;
     z-index: -1; // hide images
-    content: url("../assets/Maze-Background.png"); // load images
+    content: url("../..//assets/Maze-Background.png"); // load images
 }
 
 #background {
-    background: url("../assets/Maze-Background.png");
+    background: url("../../assets/Maze-Background.png");
     background-position: 0 -30px;
     height: 100%;
     display: flex;

@@ -6,11 +6,6 @@ export default function () {
     const pathname = location.pathname.substring(1);
     const navigate = useNavigate();
 
-    // window.addEventListener("contextmenu", (e) => {
-    //     e.preventDefault();
-    //     navigate(-1);
-    // });
-
     useEffect(() => setUrl(pathname), [location.pathname]);
 
     return (
@@ -19,7 +14,7 @@ export default function () {
                 <button className="popstate" onClick={() => navigate(-1)}>
                     &lt;
                 </button>
-                <button className="popstate" onClick={() => navigate(+1)}>
+                <button className="popstate" onClick={() => navigate(1)}>
                     &gt;
                 </button>
                 <form
@@ -40,9 +35,9 @@ export default function () {
                 <button
                     className="popstate"
                     id="quit"
-                    onClick={() =>
-                        fetch("https://mini-browser/off").catch(console.error)
-                    }
+                    onClick={() => {
+                        fetch("https://mini-browser/off").catch(console.error);
+                    }}
                 >
                     X
                 </button>

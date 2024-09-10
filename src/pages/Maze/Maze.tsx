@@ -1,18 +1,24 @@
 import { Link, Outlet } from "react-router-dom";
 import logo from "../../assets/Maze.webp";
 import "./Maze.scss";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 interface User {
-    name: string;
-    amount: number;
+    identifier: string;
+    balance: number;
 }
 
 const context = createContext<User | null>(null);
 
 export function Maze() {
-    const [user, setUser] = useState<User | null>({ name: "User", amount: 0 });
-    // TODO : Request user credentials
+    const [user, setUser] = useState<User | null>(null);
+    useEffect(() => {
+        if (user) return;
+        fetch("https://banking/auth")
+            .then((resp) => resp.json())
+            .then(setUser)
+            .catch(console.error);
+    }, []);
     return (
         <context.Provider value={user}>
             <div id="background">
@@ -62,8 +68,13 @@ export function MazeHome() {
 
 export function OpenAccount() {
     const user = useContext(context);
+    useEffect(() => {
+        fetch("https://banking/create")
+            .then((resp) => resp.json())
+            .catch(console.error);
+    }, []);
     if (user) return <>You already own a banking account</>;
-    return <>loading</>;
+    return <>Creating account...</>;
 }
 
 export function MazeDeposit() {
