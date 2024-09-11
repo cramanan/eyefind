@@ -34,34 +34,6 @@
     }
 }
 
-#sep {
-    height: 10px;
-    width: 100%;
-    background-color: #ffbe00;
-}
-
-#links {
-    background-color: #efefef;
-    height: 50px;
-    border-bottom: solid #d0d0d0 2px;
-    display: flex;
-    justify-content: space-evenly;
-    padding: 0 20%;
-
-    a {
-        text-decoration: none;
-        height: 100%;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        &:not(:last-child) {
-            border-right: solid #d0d0d0 2px;
-        }
-    }
-}
-
 #url-main {
     padding-top: var(--url-width);
     height: calc(100dvh - var(--url-width));
