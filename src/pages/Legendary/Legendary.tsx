@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import "./Legendary.scss";
 import background from "../../assets/legendary.jpg";
-import { MouseEvent, useState } from "react";
+import { useState } from "react";
 
 export function Legendary() {
     return (
@@ -20,9 +20,7 @@ export function LegendaryHome() {
 
     const [activeButton, setActiveButton] = useState(buttons[0]);
 
-    const handleClick = (button: string) => {
-        setActiveButton(button);
-    };
+    const handleClick = (button: string) => setActiveButton(button);
 
     return (
         <div id="cars">

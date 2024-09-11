@@ -10,6 +10,7 @@ import {
     MazeOpen,
 } from "../pages/Maze/Maze";
 import { Legendary, LegendaryHome } from "../pages/Legendary/Legendary";
+import { Warstock, WarstockHome } from "../pages/Warstock/Warstock";
 
 function App() {
     return (
@@ -49,6 +50,13 @@ function App() {
                         element={<Legendary />}
                     >
                         <Route path="" element={<LegendaryHome />} />
+                    </Route>
+
+                    <Route
+                        path="www.warstock-cache-and-carry.com"
+                        element={<Warstock />}
+                    >
+                        <Route path="" element={<WarstockHome />} />
                     </Route>
 
                     <Route path="*" element={<Eyefind />}>
