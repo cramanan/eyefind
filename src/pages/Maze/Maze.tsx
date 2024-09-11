@@ -2,7 +2,6 @@ import { Link, Outlet } from "react-router-dom";
 import logo from "../../assets/Maze.webp";
 import "./Maze.scss";
 import { createContext, useContext, useEffect, useState } from "react";
-import { fetchNui } from "../../utils/fetchNui";
 
 interface User {
     identifier: string;
@@ -20,11 +19,7 @@ export function Maze() {
     const [user, setUser] = useState<User | null>(null);
     document.title = "Maze Bank of Los Santos";
 
-    const fetchUser = () => {
-        fetchNui<User | null>("auth", null, null)
-            .then(setUser)
-            .catch(console.error);
-    };
+    const fetchUser = () => {};
 
     useEffect(fetchUser, []);
 
@@ -80,17 +75,10 @@ export function MazeOpen() {
     const [loading, setLoading] = useState(true);
 
     const createAccount = () => {
-        fetchNui<User | null>("create", null, {
-            identifier: "fivem:identifier",
-            balance: 5000,
-        })
-            .then((user) =>
-                setTimeout(() => {
-                    setLoading(false);
-                    setUser(user);
-                }, 2000)
-            )
-            .catch(console.error);
+        setTimeout(() => {
+            setLoading(false);
+            setUser({ identifier: "identifier", balance: 0 });
+        }, 2000);
     };
 
     if (user && loading)

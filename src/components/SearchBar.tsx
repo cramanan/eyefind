@@ -39,13 +39,7 @@ export default function () {
                 >
                     H
                 </button>
-                <button
-                    className="popstate"
-                    id="quit"
-                    onClick={() => {
-                        fetch("https://mini-browser/off").catch(console.error);
-                    }}
-                >
+                <button className="popstate" id="quit">
                     X
                 </button>
             </div>

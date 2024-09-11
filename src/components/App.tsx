@@ -1,5 +1,4 @@
 import "./App.scss";
-import { debugData } from "../utils/debugData";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import { Eyefind, Eyefind404, EyefindHome } from "../pages/Eyefind/Eyefind";
@@ -10,15 +9,6 @@ import {
     MazeHome,
     MazeOpen,
 } from "../pages/Maze/Maze";
-
-// This will set the NUI to visible if we are
-// developing in browser
-debugData([
-    {
-        action: "setVisible",
-        data: true,
-    },
-]);
 
 function App() {
     return (
