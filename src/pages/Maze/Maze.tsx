@@ -96,23 +96,48 @@ export function OpenAccount() {
             .catch(console.error);
     };
 
-    if (!user) createAccount();
+    if (user && loading)
+        return (
+            <div id="choices">
+                <div id="choice">
+                    <span>You already own a bank account</span>
+                    <Link to="/www.maze-bank.com" className="red-button">
+                        Back to menu
+                    </Link>
+                </div>
+            </div>
+        );
 
-    if (user) return <>You already own a banking account</>;
+    createAccount();
 
-    if (loading) return <>Creating account...</>;
+    if (loading)
+        return (
+            <div id="choices">
+                <div id="choice">Creating account...</div>
+            </div>
+        );
 
-    return <>Account created successfully</>;
+    if (user)
+        return (
+            <div id="choices">
+                <div id="choice">
+                    <span>Account created successfully</span>
+                    <Link to="/www.maze-bank.com" className="red-button">
+                        Back to menu
+                    </Link>
+                </div>
+            </div>
+        );
 }
 export function MazeDeposit() {
     const user = useContext(context);
-    if (!user) return <>You do not own any banking account</>;
+    if (!user) return <>You do not own any bank account</>;
     return <>Deposit Loading</>;
 }
 
 export function MazeWithdraw() {
     const user = useContext(context);
-    if (!user) return <>You do not own any banking account</>;
+    if (!user) return <>You do not own any bank account</>;
     return <>Withdraw Loading</>;
 }
 
