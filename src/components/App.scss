@@ -1,0 +1,39 @@
+:root {
+    --url-width: 40px;
+}
+
+#url {
+    background-color: #d3d3d8;
+    height: var(--url-width);
+    width: 100dvw;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    #popstates {
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .popstate {
+        width: 20px;
+        height: 20px;
+    }
+
+    #search-bar-form {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        #search-bar {
+            width: 600px;
+        }
+    }
+}
+
+#url-main {
+    padding-top: var(--url-width);
+    height: calc(100dvh - var(--url-width));
+}
