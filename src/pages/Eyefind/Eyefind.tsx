@@ -4,13 +4,35 @@ import mazelogo from "../../assets/Maze.webp";
 import "./Eyefind.scss";
 
 export function Eyefind() {
+    document.title = "Eyefind";
+
     return (
         <>
             <header id="eyefind-header">
-                <Link to="/www.eyefind.info">
-                    <img src={logo} alt="eyefind logo" />
-                </Link>
+                <header id="eyefind-header-container">
+                    <Link to="/www.eyefind.info">
+                        <img src={logo} alt="eyefind logo" />
+                    </Link>
+                </header>
             </header>
+            <div id="sep"></div>
+            <div id="links">
+                <Link to="media">
+                    <span>MEDIA AND ENTERTAINEMENT</span>
+                </Link>
+                <Link to="food">
+                    <span>FOOD AND DRINK</span>
+                </Link>
+                <Link to="money">
+                    <span>MONEY AND SERVICES</span>
+                </Link>
+                <Link to="travel">
+                    <span>TRAVEL AND TRANSPORTS</span>
+                </Link>
+                <Link to="fashion">
+                    <span>FASHION AND HEALTH</span>
+                </Link>
+            </div>
             <main id="eyefind-main">
                 <Outlet />
             </main>
