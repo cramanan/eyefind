@@ -1,0 +1,63 @@
+body::after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    z-index: -1; // hide images
+    content: url("../../assets/legendary-pattern.png"); // load images
+}
+
+#legendary-header {
+    border-top: solid#c5adad 10px;
+    width: 100%;
+    vertical-align: middle;
+}
+
+#cars-section {
+    width: 100%;
+    height: 100%;
+    border-top: solid #a60b0a 6px;
+    background-color: #7c0304;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("../../assets/legendary-pattern.png");
+    position: relative;
+
+    #cars {
+        width: 80%;
+        background-color: #220000;
+        border: solid #840000;
+        height: 100%;
+        margin-top: -80px;
+        padding: 10px;
+
+        #filters-ul {
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            height: 70px;
+
+            li {
+                background-color: #a00000;
+                border-radius: 4px;
+                margin: 4px;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 22px;
+                border: none;
+                user-select: none;
+                color: #fff;
+
+                &.active {
+                    background-color: #ffffff;
+                    color: #000;
+                }
+            }
+        }
+    }
+}

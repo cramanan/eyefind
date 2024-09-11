@@ -1,6 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
 import logo from "../../assets/Eyefind.info.webp";
 import mazelogo from "../../assets/Maze.webp";
+import legendarylogo from "../../assets/LegendaryMotorsport-GTAV-Logo.webp";
 import "./Eyefind.scss";
 
 export function Eyefind() {
@@ -46,8 +47,11 @@ export function EyefindHome() {
             <Link to="/www.maze-bank.com">
                 <img src={mazelogo} alt="go to maze bank website" />
             </Link>
-            <Link to="/www.maze-bank.com">
-                <img src={mazelogo} alt="go to maze bank website" />
+            <Link to="/www.legendarymotorsport.net">
+                <img
+                    src={legendarylogo}
+                    alt="go to legendary motorsport website"
+                />
             </Link>
             <Link to="/www.maze-bank.com">
                 <img src={mazelogo} alt="go to maze bank website" />

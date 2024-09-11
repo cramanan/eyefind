@@ -9,6 +9,7 @@ import {
     MazeHome,
     MazeOpen,
 } from "../pages/Maze/Maze";
+import { Legendary, LegendaryHome } from "../pages/Legendary/Legendary";
 
 function App() {
     return (
@@ -41,6 +42,13 @@ function App() {
 
                         <Route path="logs" element={<>logs</>} />
                         <Route path="*" element={<Maze404 />} />
+                    </Route>
+
+                    <Route
+                        path="www.legendarymotorsport.net"
+                        element={<Legendary />}
+                    >
+                        <Route path="" element={<LegendaryHome />} />
                     </Route>
 
                     <Route path="*" element={<Eyefind />}>
