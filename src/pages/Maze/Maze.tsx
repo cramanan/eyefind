@@ -18,14 +18,11 @@ const context = createContext<Initial>({ user: null, setUser: console.log });
 
 export function Maze() {
     const [user, setUser] = useState<User | null>(null);
-    const [loading, setLoading] = useState(true);
+    document.title = "Maze Bank of Los Santos";
 
     const fetchUser = () => {
         fetchNui<User | null>("auth", null, null)
-            .then((user) => {
-                setUser(user);
-                setLoading(false);
-            })
+            .then(setUser)
             .catch(console.error);
     };
 
@@ -36,9 +33,11 @@ export function Maze() {
             <div id="background">
                 <span id="bar"></span>
                 <div id="container">
-                    <Link to="">
-                        <img src={logo} alt="Maze Bank Logo" id="logo" />
-                    </Link>
+                    <div id="logo-container">
+                        <Link to="">
+                            <img src={logo} alt="Maze Bank Logo" id="logo" />
+                        </Link>
+                    </div>
                     <span id="sep"></span>
                     <div id="outlet">
                         <Outlet />
@@ -56,17 +55,15 @@ export function MazeHome() {
             <div id="choices">
                 <div id="choice">
                     {!user ? (
-                        <Link to="open-account" className="red-button">
+                        <Link to="account-open" className="red-button">
                             Open a bank account
                         </Link>
                     ) : (
                         <>
-                            <Link to="deposit" className="red-button">
-                                Deposit
+                            <Link to="account-details" className="red-button">
+                                Account details
                             </Link>
-                            <Link to="withdraw" className="red-button">
-                                Withdraw
-                            </Link>
+
                             <Link to="logs" className="red-button">
                                 Transaction Logs
                             </Link>
@@ -78,7 +75,7 @@ export function MazeHome() {
     );
 }
 
-export function OpenAccount() {
+export function MazeOpen() {
     const { user, setUser } = useContext(context);
     const [loading, setLoading] = useState(true);
 
@@ -129,18 +126,11 @@ export function OpenAccount() {
             </div>
         );
 }
-export function MazeDeposit() {
-    const user = useContext(context);
-    if (!user) return <>You do not own any bank account</>;
-    return <>Deposit Loading</>;
-}
-
-export function MazeWithdraw() {
-    const user = useContext(context);
-    if (!user) return <>You do not own any bank account</>;
-    return <>Withdraw Loading</>;
-}
 
 export function Maze404() {
     return <>404</>;
+}
+
+export function MazeDetails() {
+    return <>account details</>;
 }

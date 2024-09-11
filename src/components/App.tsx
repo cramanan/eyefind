@@ -6,10 +6,9 @@ import { Eyefind, Eyefind404, EyefindHome } from "../pages/Eyefind/Eyefind";
 import {
     Maze,
     Maze404,
-    MazeDeposit,
+    MazeDetails,
     MazeHome,
-    MazeWithdraw,
-    OpenAccount,
+    MazeOpen,
 } from "../pages/Maze/Maze";
 
 // This will set the NUI to visible if we are
@@ -44,9 +43,12 @@ function App() {
                     </Route>
                     <Route path="www.maze-bank.com" element={<Maze />}>
                         <Route path="" element={<MazeHome />} />
-                        <Route path="open-account" element={<OpenAccount />} />
-                        <Route path="deposit" element={<MazeDeposit />} />
-                        <Route path="withdraw" element={<MazeWithdraw />} />
+                        <Route path="account-open" element={<MazeOpen />} />
+                        <Route
+                            path="account-details"
+                            element={<MazeDetails />}
+                        />
+
                         <Route path="logs" element={<>logs</>} />
                         <Route path="*" element={<Maze404 />} />
                     </Route>

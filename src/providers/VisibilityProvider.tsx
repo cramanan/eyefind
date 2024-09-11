@@ -30,7 +30,7 @@ export function VisibilityProvider({ children }: { children: ReactNode }) {
         if (!visible) return;
 
         const keyHandler = (e: KeyboardEvent) => {
-            if (["Backspace", "Escape"].includes(e.code)) {
+            if (e.code === "Escape") {
                 if (!isEnvBrowser()) fetchNui("hideFrame");
                 else setVisible(!visible);
             }

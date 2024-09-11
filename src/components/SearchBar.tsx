@@ -30,8 +30,15 @@ export default function () {
                         id="search-bar"
                         value={url}
                         onChange={(e) => setUrl(e.target.value)}
+                        autoComplete="off"
                     />
                 </form>
+                <button
+                    className="popstate"
+                    onClick={() => navigate("/www.eyefind.info")}
+                >
+                    H
+                </button>
                 <button
                     className="popstate"
                     id="quit"

@@ -3,6 +3,11 @@
     height: 240px;
     display: flex;
     align-items: center;
+    justify-content: center;
+
+    #eyefind-header-container {
+        width: 70%;
+    }
 }
 
 #eyefind-main {
@@ -10,9 +15,9 @@
     justify-content: center;
 
     #sites {
-        width: 1200px;
+        width: 70%;
         padding: 50px 0;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
     }
 }
