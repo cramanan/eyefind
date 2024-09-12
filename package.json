@@ -1,6 +1,5 @@
 {
-    "name": "web",
-    "homepage": "web/build",
+    "name": "eyefind",
     "private": true,
     "type": "module",
     "version": "0.1.0",

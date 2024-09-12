@@ -36,6 +36,12 @@ body::after {
             place-self: center;
         }
 
+        #logo-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
         .red-button {
             margin: 20px;
             width: 100%;

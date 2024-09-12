@@ -4,27 +4,24 @@ import "./Maze.scss";
 import { createContext, useContext, useEffect, useState } from "react";
 
 interface User {
-    identifier: string;
+    name: string;
     balance: number;
+    setBalance: (n: number) => void;
 }
 
-interface Initial {
-    user: User | null;
-    setUser: (u: User | null) => void;
-}
-
-const context = createContext<Initial>({ user: null, setUser: console.log });
+const context = createContext<User>({
+    name: "Michael",
+    balance: 0,
+    setBalance: console.log,
+});
 
 export function Maze() {
-    const [user, setUser] = useState<User | null>(null);
     document.title = "Maze Bank of Los Santos";
-
-    const fetchUser = () => {};
-
-    useEffect(fetchUser, []);
+    const name = "Michael";
+    const [balance, setBalance] = useState(457_768);
 
     return (
-        <context.Provider value={{ user, setUser }}>
+        <context.Provider value={{ name, balance, setBalance }}>
             <div id="background">
                 <span id="bar"></span>
                 <div id="container">
@@ -32,6 +29,10 @@ export function Maze() {
                         <Link to="">
                             <img src={logo} alt="Maze Bank Logo" id="logo" />
                         </Link>
+                        <div id="balance">
+                            Account balance: $
+                            {new Intl.NumberFormat("en-US").format(balance)}
+                        </div>
                     </div>
                     <span id="sep"></span>
                     <div id="outlet">
@@ -44,81 +45,30 @@ export function Maze() {
 }
 
 export function MazeHome() {
-    const { user } = useContext(context);
     return (
         <div id="home">
             <div id="choices">
                 <div id="choice">
-                    {!user ? (
-                        <Link to="account-open" className="red-button">
-                            Open a bank account
-                        </Link>
-                    ) : (
-                        <>
-                            <Link to="account-details" className="red-button">
-                                Account details
-                            </Link>
+                    <Link to="deposit" className="red-button">
+                        Deposit
+                    </Link>
+                    <Link to="withdraw" className="red-button">
+                        Withdraw
+                    </Link>
 
-                            <Link to="logs" className="red-button">
-                                Transaction Logs
-                            </Link>
-                        </>
-                    )}
+                    <Link to="logs" className="red-button">
+                        Transaction Logs
+                    </Link>
                 </div>
             </div>
         </div>
     );
 }
 
-export function MazeOpen() {
-    const { user, setUser } = useContext(context);
-    const [loading, setLoading] = useState(true);
-
-    const createAccount = () => {
-        setTimeout(() => {
-            setLoading(false);
-            setUser({ identifier: "identifier", balance: 0 });
-        }, 2000);
-    };
-
-    if (user && loading)
-        return (
-            <div id="choices">
-                <div id="choice">
-                    <span>You already own a bank account</span>
-                    <Link to="/www.maze-bank.com" className="red-button">
-                        Back to menu
-                    </Link>
-                </div>
-            </div>
-        );
-
-    createAccount();
-
-    if (loading)
-        return (
-            <div id="choices">
-                <div id="choice">Creating account...</div>
-            </div>
-        );
-
-    if (user)
-        return (
-            <div id="choices">
-                <div id="choice">
-                    <span>Account created successfully</span>
-                    <Link to="/www.maze-bank.com" className="red-button">
-                        Back to menu
-                    </Link>
-                </div>
-            </div>
-        );
+export function MazeDeposit() {
+    return <>Deposit</>;
 }
 
-export function Maze404() {
-    return <>404</>;
-}
-
-export function MazeDetails() {
-    return <>account details</>;
+export function MazeWithdraw() {
+    return <>Withdraw</>;
 }
