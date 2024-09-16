@@ -21,26 +21,26 @@ export function Maze() {
     const [balance, setBalance] = useState(457_768);
 
     return (
-        <context.Provider value={{ name, balance, setBalance }}>
-            <div id="background">
-                <span id="bar"></span>
-                <div id="container">
-                    <div id="logo-container">
-                        <Link to="">
-                            <img src={logo} alt="Maze Bank Logo" id="logo" />
-                        </Link>
-                        <div id="balance">
-                            Account balance: $
-                            {new Intl.NumberFormat("en-US").format(balance)}
-                        </div>
-                    </div>
-                    <span id="sep"></span>
-                    <div id="outlet">
-                        <Outlet />
+        <div id="background">
+            <span id="bar"></span>
+            <div id="container">
+                <div id="logo-container">
+                    <Link to="">
+                        <img src={logo} alt="Maze Bank Logo" id="logo" />
+                    </Link>
+                    <div id="balance">
+                        Account balance: $
+                        {new Intl.NumberFormat("en-US").format(balance)}
                     </div>
                 </div>
+                <span id="sep"></span>
+                <div id="outlet">
+                    <context.Provider value={{ name, balance, setBalance }}>
+                        <Outlet />
+                    </context.Provider>
+                </div>
             </div>
-        </context.Provider>
+        </div>
     );
 }
 

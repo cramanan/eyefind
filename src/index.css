@@ -1,3 +1,17 @@
+@font-face {
+    font-family: Chalet;
+    src: url("/Chalet.otf");
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+    font-family: Chalet;
+}
+
 body {
     margin: 0;
     height: 100vh;
