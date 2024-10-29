@@ -38,7 +38,7 @@ export function Eyefind() {
                     </Link>
                 ))}
             </div>
-            <main id="eyefind-main">
+            <main>
                 <Outlet />
             </main>
         </>
@@ -47,7 +47,7 @@ export function Eyefind() {
 
 export function EyefindHome() {
     return (
-        <div id="sites">
+        <div id="sites" className="w-fit flex gap-14 mx-auto my-12">
             <Link to="/www.maze-bank.com">
                 <img src={mazelogo} alt="go to maze bank website" />
             </Link>

@@ -22,7 +22,7 @@ export default function () {
 
     return (
         <>
-            <div className="w-full flex fixed justify-center items-center z-10 bg-[#d3d3d8] h-10 ">
+            <div className="w-full flex fixed justify-center gap-8 items-center z-10 bg-[#d3d3d8] h-10 ">
                 <div className="flex  p-1 gap-1 border border-[#505054] rounded-xl overflow-hidden">
                     {buttons.map((elt, idx) => (
                         <button
@@ -68,7 +68,7 @@ export default function () {
                         <input
                             type="text"
                             name="url"
-                            className="w-[600px] text-xl outline-none px-1"
+                            className="w-[800px] text-xl outline-none px-1"
                             value={url}
                             onChange={(e) => setUrl(e.target.value)}
                             autoComplete="off"
