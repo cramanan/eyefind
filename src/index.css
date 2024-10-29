@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
     font-family: Chalet;
     src: url("/Chalet.otf");
@@ -10,13 +14,4 @@
     padding: 0;
     box-sizing: content-box;
     font-family: Chalet;
-}
-
-body {
-    margin: 0;
-    height: 100vh;
-}
-
-#root {
-    height: 100%;
 }

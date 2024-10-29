@@ -1,14 +1,13 @@
 import { Outlet } from "react-router-dom";
-import "./Legendary.scss";
 import background from "../../assets/legendary.jpg";
 import { useState } from "react";
 
 export function Legendary() {
     return (
         <>
-            <div id="legendary-bar"></div>
-            <img id="legendary-header" src={background} />
-            <section id="cars-section">
+            <div className="h-3 bg-[#75080a]"></div>
+            <img className="w-full align-middle" src={background} />
+            <section className="w-full h-full flex items-center flex-col bg-legendary-pattern border-t-[6px] border-[#a60b0a] bg-[#7c0304]">
                 <Outlet />
             </section>
         </>
@@ -23,13 +22,20 @@ export function LegendaryHome() {
     const handleClick = (button: string) => setActiveButton(button);
 
     return (
-        <div id="cars">
-            <div id="filters-ul">
+        <div className="h-full w-4/5 bg-[#200] -mt-20 p-3 border-4 border-[#840000]">
+            <div
+                id="filters-ul"
+                className="h-[70px] flex items-center justify-evenly list-none"
+            >
                 {buttons.map((button, i) => (
                     <li
                         key={i}
                         onClick={() => handleClick(button)}
-                        className={activeButton === button ? "active" : ""}
+                        className={`h-full w-full flex justify-center items-center m-1 cursor-pointer rounded-md text-[22px] ${
+                            button === activeButton
+                                ? "bg-white text-black"
+                                : "bg-[#a00000] text-white"
+                        } `}
                     >
                         {button}
                     </li>

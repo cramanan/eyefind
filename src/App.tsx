@@ -1,8 +1,13 @@
-import "./App.scss";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import { Eyefind, Eyefind404, EyefindHome } from "./pages/Eyefind/Eyefind";
-import { Maze, MazeDeposit, MazeHome, MazeWithdraw } from "./pages/Maze/Maze";
+import {
+    Maze,
+    MazeDeposit,
+    MazeHome,
+    MazeLogs,
+    MazeWithdraw,
+} from "./pages/Maze/Maze";
 import { Legendary, LegendaryHome } from "./pages/Legendary/Legendary";
 import { Warstock, WarstockHome } from "./pages/Warstock/Warstock";
 
@@ -32,6 +37,7 @@ function App() {
                         <Route path="" element={<MazeHome />} />
                         <Route path="deposit" element={<MazeDeposit />} />
                         <Route path="withdraw" element={<MazeWithdraw />} />
+                        <Route path="logs" element={<MazeLogs />} />
                     </Route>
 
                     <Route

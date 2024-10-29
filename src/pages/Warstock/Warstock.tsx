@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom";
 import background from "../../assets/bg_warstock.jpeg";
-import "./Warstock.scss";
 
 export function Warstock() {
     return (

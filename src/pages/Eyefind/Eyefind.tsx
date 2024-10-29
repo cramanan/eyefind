@@ -3,37 +3,40 @@ import logo from "../../assets/Eyefind.info.webp";
 import mazelogo from "../../assets/Maze.webp";
 import legendarylogo from "../../assets/LegendaryMotorsport-GTAV-Logo.webp";
 import warstocklogo from "../../assets/warstock-logo.png";
-import "./Eyefind.scss";
+
+const links = [
+    "MEDIA AND ENTERTAINEMENT",
+    "FOOD AND DRINK",
+    "MONEY AND SERVICES",
+    "TRAVEL AND TRANSPORTS",
+    "FASHION AND HEALTH",
+];
+
+const toUrl = (s: string) => s.split(" ")[0].toLowerCase();
 
 export function Eyefind() {
     document.title = "Eyefind";
 
     return (
         <>
-            <header id="eyefind-header">
-                <header id="eyefind-header-container">
+            <header className="flex justify-center items-center h-60 bg-[#498bc2]">
+                <div className="w-[70%]">
                     <Link to="/www.eyefind.info">
                         <img src={logo} alt="eyefind logo" />
                     </Link>
-                </header>
+                </div>
             </header>
-            <div id="sep"></div>
-            <div id="links">
-                <Link to="media">
-                    <span>MEDIA AND ENTERTAINEMENT</span>
-                </Link>
-                <Link to="food">
-                    <span>FOOD AND DRINK</span>
-                </Link>
-                <Link to="money">
-                    <span>MONEY AND SERVICES</span>
-                </Link>
-                <Link to="travel">
-                    <span>TRAVEL AND TRANSPORTS</span>
-                </Link>
-                <Link to="fashion">
-                    <span>FASHION AND HEALTH</span>
-                </Link>
+            <div className="h-3 bg-[#ffbe00]"></div>
+            <div className="flex justify-evenly py-0 px-[20%] bg-[#efefef] h-[50px] border border-b-2 border-[#d0d0d0]">
+                {links.map((link, idx) => (
+                    <Link
+                        key={idx}
+                        to={toUrl(link)}
+                        className="w-full h-full flex items-center justify-center [:not(:last-child)]:border border-[#d0d0d0] border-r-2"
+                    >
+                        {link}
+                    </Link>
+                ))}
             </div>
             <main id="eyefind-main">
                 <Outlet />
